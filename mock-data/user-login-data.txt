@@ -1,5 +1,0 @@
-{
-    "email": "jusulovy@polkaroad.net",
-    "password": "Frost-Quilt7-Lantern-Brook"
-}
-How can I resolve this? If you propose a fix, please make it concise.
