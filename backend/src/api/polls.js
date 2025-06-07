@@ -31,6 +31,11 @@ router.get('/discover', authenticate, extractUserId, async (req, res) => {
                 creator_id: {
                     [Op.ne]: userId  // Exclude polls created by the user
                 },
+                // Exclude expired polls
+                [Op.or]: [
+                    { expires_at: null },  // No expiration
+                    { expires_at: { [Op.gt]: new Date() } }  // Not yet expired
+                ],
                 ...(excludeIds.length > 0 && {
                     id: {
                         [Op.notIn]: excludeIds
